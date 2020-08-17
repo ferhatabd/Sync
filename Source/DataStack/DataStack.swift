@@ -95,8 +95,10 @@ import CoreData
     /**
      Initializes a DataStack using the provided model name.
      - parameter modelName: The name of your Core Data model (xcdatamodeld).
+     - parameter bundle: Bundle in which the model lives
      */
-    @objc public init(modelName: String) {
+    @objc public init(modelName: String, bundle: Bundle = .main) {
+        self.modelBundle = bundle
         self.modelName = modelName
         self.model = NSManagedObjectModel(bundle: self.modelBundle, name: self.modelName)
 
